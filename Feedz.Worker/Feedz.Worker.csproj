@@ -24,4 +24,12 @@
     <PackageReference Include="Hangfire" Version="1.7.29" />
     <PackageReference Include="Hangfire.Core" Version="1.7.29" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Feedz.Feed.Atom\Feedz.Feed.Atom.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Feedz.Feed.RSS\Feedz.Feed.RSS.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

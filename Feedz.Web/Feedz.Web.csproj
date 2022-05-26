@@ -9,11 +9,8 @@
 
   <ItemGroup>
     <None Remove="Hangfire" />
+    <None Remove="Models\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
-  </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.5" />
     <PackageReference Include="Hangfire" Version="1.7.29" />
@@ -26,5 +23,8 @@
     <ProjectReference Include="..\Feedz.Worker\Feedz.Worker.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
