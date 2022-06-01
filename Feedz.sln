@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Feed.Atom", "Feedz.Fe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Feed", "Feedz.Feed\Feedz.Feed.csproj", "{C776E7C5-BC4E-45C6-B6DA-5861C6C97CF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Data.Tests", "Feedz.Data.Tests\Feedz.Data.Tests.csproj", "{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,11 +47,17 @@ Global
 		{C776E7C5-BC4E-45C6-B6DA-5861C6C97CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C776E7C5-BC4E-45C6-B6DA-5861C6C97CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C776E7C5-BC4E-45C6-B6DA-5861C6C97CF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED474223-8EBF-4D95-826B-73D2023B5197}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
