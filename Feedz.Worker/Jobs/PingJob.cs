@@ -5,9 +5,14 @@ namespace Feedz.Worker.Jobs
 {
 	public class PingJob
 	{
+		public static void Schedule()
+		{
+			BackgroundJob.Enqueue(() => Run());
+		}
+
 		public static void Run()
 		{
-			BackgroundJob.Enqueue(() => Console.WriteLine("Ping!"));
+			Console.WriteLine("Ping!");
 		}
 	}
 }

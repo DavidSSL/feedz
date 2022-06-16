@@ -1,9 +1,11 @@
-﻿namespace Feedz.Feed.Atom;
+﻿using System.ServiceModel.Syndication;
+
+namespace Feedz.Feed.Atom;
 using Feedz.Data.Models;
 
 public class AtomFeedConnector : IFeedConnector
 {
-    public Feed Fetch()
+    public SyndicationFeed Fetch()
     {
         throw new NotImplementedException();
     }

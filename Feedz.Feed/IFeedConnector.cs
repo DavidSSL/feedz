@@ -1,8 +1,10 @@
-﻿namespace Feedz.Feed;
+﻿using System.ServiceModel.Syndication;
+
+namespace Feedz.Feed;
 using Feedz.Data.Models;
 
 public interface IFeedConnector
 {
-    Feed Fetch();
+    SyndicationFeed? Fetch();
 }
 
