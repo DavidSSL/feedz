@@ -14,20 +14,25 @@ public class DebugController : Controller
         _logger = logger;
     }
 
+    public IActionResult Index()
+    {
+        return View();
+    }
+
     public string Ping()
     {
         PingJob.Schedule();
         return "ok";
     }
 
-    public string Test([FromQuery(Name="uri")] string feedUriString)
+    public string TestFeedAsync([FromQuery(Name="uri")] string feedUriString)
     {
         if (feedUriString == null) throw new Exception("Missing uri parameter");
         TestFeed.Schedule(new Uri(feedUriString));
         return "ok";
     }
 
-    public Feedz.Data.Models.Feed TestSync([FromQuery(Name="uri")] string feedUriString)
+    public Feedz.Data.Models.Feed TestFeedSync([FromQuery(Name="uri")] string feedUriString)
     {
         if (feedUriString == null) throw new Exception("Missing uri parameter");
         return TestFeed.Run(new Uri(feedUriString));
