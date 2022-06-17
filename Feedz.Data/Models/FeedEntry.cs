@@ -5,25 +5,25 @@ using Microsoft.EntityFrameworkCore;
 namespace Feedz.Data.Models
 {
     [Index(nameof(RegistrationDate))]
-	public class FeedEntry
-	{
+    public class FeedEntry
+    {
         [Key]
-		public Guid Id { get; set; }
-		public string Title { get; set; }
-		public Uri Uri { get; set; }
-		public string UniqueI{ get; set; }
-		public string? Description { get; set; }
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public Uri Uri { get; set; }
+        public string UniqueI { get; set; }
+        public string? Description { get; set; }
 
-		public DateTime RegistrationDate { get; set; } = DateTime.Now;
-		public DateTime PublicationDate { get; set; }
+        public DateTime RegistrationDate { get; set; } = DateTime.Now;
+        public DateTime PublicationDate { get; set; }
 
-		// Relations
-		public Guid FeedId { get; set; }
-		public Feed Feed { get; set; }
+        // Relations
+        public Guid FeedId { get; set; }
+        public Feed Feed { get; set; }
 
-		public FeedEntry()
-		{
-		}
-	}
+        public FeedEntry()
+        {
+        }
+    }
 }
 

@@ -4,7 +4,8 @@ using Hangfire.PostgreSql;
 var builder = WebApplication.CreateBuilder(args);
 var hangfireConnectionString = builder.Configuration.GetConnectionString("HangfireConnection");
 
-if(hangfireConnectionString is null) {
+if (hangfireConnectionString is null)
+{
     throw new Exception("Missing HangfireConnection connection string");
 }
 

@@ -4,17 +4,21 @@ using Feedz.Data.Database;
 using Hangfire;
 using Hangfire.PostgreSql;
 using Npgsql;
+using Feedz.Web.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 var hangfireConnectionString = builder.Configuration.GetConnectionString("HangfireConnection");
 
 // Add services to the container.
+
+// Database configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+// Authentication provider configuration
+builder.Services.AddDefaultIdentity<IdentityUser>(options => Authentication.ConfigureIdentity(options))
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 

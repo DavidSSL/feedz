@@ -25,19 +25,19 @@ public class DebugController : Controller
         return "ok";
     }
 
-    public string TestFeedAsync([FromQuery(Name="uri")] string feedUriString)
+    public string TestFeedAsync([FromQuery(Name = "uri")] string feedUriString)
     {
         if (feedUriString == null) throw new Exception("Missing uri parameter");
         TestFeed.Schedule(new Uri(feedUriString));
         return "ok";
     }
 
-    public Feedz.Data.Models.Feed TestFeedSync([FromQuery(Name="uri")] string feedUriString)
+    public Feedz.Data.Models.Feed TestFeedSync([FromQuery(Name = "uri")] string feedUriString)
     {
         if (feedUriString == null) throw new Exception("Missing uri parameter");
         return TestFeed.Run(new Uri(feedUriString));
     }
-    
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
