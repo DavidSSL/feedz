@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Feedz.Data.Database;
 using Hangfire;
 using Hangfire.PostgreSql;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 var hangfireConnectionString = builder.Configuration.GetConnectionString("HangfireConnection");
@@ -10,7 +11,7 @@ var hangfireConnectionString = builder.Configuration.GetConnectionString("Hangfi
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseNpgsql(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
