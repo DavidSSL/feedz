@@ -6,11 +6,11 @@ namespace Feedz.Web.Settings
     {
         public static IdentityOptions ConfigureIdentity(IdentityOptions options)
         {
-            #if DEBUG
+#if DEBUG
             return ConfigureDevelopmentIdentity(options);
-            #else
+#else
             return ConfigureProductionIdentity(options);
-            #endif
+#endif
         }
 
         public static IdentityOptions ConfigureDevelopmentIdentity(IdentityOptions options)

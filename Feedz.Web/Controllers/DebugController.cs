@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Feedz.Data.Models;
 using Feedz.Worker.Jobs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Feedz.Web.Controllers;
 
+[Authorize(Roles = "Administrator")]
 public class DebugController : Controller
 {
     private readonly ILogger<DebugController> _logger;

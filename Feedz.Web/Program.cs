@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Collections.Immutable;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Feedz.Data.Database;
+using Feedz.Web.Services;
 using Hangfire;
 using Hangfire.PostgreSql;
 using Feedz.Web.Settings;
-
 var builder = WebApplication.CreateBuilder(args);
 var hangfireConnectionString = builder.Configuration.GetConnectionString("HangfireConnection");
 
@@ -13,18 +14,16 @@ var hangfireConnectionString = builder.Configuration.GetConnectionString("Hangfi
 // Database configuration
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseNpgsql(connectionString, b => b.MigrationsAssembly("Feedz.Web")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Authentication provider configuration
 builder.Services.AddDefaultIdentity<IdentityUser>(options => Authentication.ConfigureIdentity(options))
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-
-//builder.Services.AddHangfire(configuration => configuration
-//        .UseSimpleAssemblyNameTypeSerializer()
-//        .UseRecommendedSerializerSettings()
-//        .UsePostgreSqlStorage(hangfireConnectionString));
+builder.Services.AddTransient<IdentityDataSeeder>();
+builder.Services.AddHostedService<SetupIdentityDataSeeder>();
 
 // Hangfire job storage
 JobStorage.Current = new PostgreSqlStorage(hangfireConnectionString);
@@ -56,5 +55,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
+// Start the application
 app.Run();
+
 
