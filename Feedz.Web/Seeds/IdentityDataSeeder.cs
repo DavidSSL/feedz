@@ -49,6 +49,8 @@ public class IdentityDataSeeder
 
         await CreateUserAsync(administratorUser, adminPassword);
 
+        await GrantRoleToUser("Administrator", adminEmail);
+
     }
 
     private async Task CreateRoleAsync(IdentityRole role)
@@ -68,6 +70,17 @@ public class IdentityDataSeeder
         {
             _logger.LogInformation("Creating user {email}", user.Email);
             await _userManager.CreateAsync(user, password);
+        }
+    }
+
+    private async Task GrantRoleToUser(string roleName, string userEmail)
+    {
+        var user = await _userManager.FindByEmailAsync(userEmail);
+        var alreadyAssigned = await _userManager.IsInRoleAsync(user, roleName);
+        if (!alreadyAssigned)
+        {
+            _logger.LogInformation("Granting role {role} to {email}", roleName, userEmail);
+            await _userManager.AddToRoleAsync(user, roleName);
         }
     }
 }
