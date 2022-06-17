@@ -1,24 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 
 namespace Feedz.Web.Settings
 {
     public static class Authentication
     {
-        public static IdentityOptions ConfigureIdentity(WebApplication app, IdentityOptions options)
+        public static IdentityOptions ConfigureIdentity(IdentityOptions options)
         {
-
-            if (app.Environment.IsDevelopment())
-            {
-                return ConfigureDevelopmentIdentity(options);
-            }
-            else
-            {
-                return ConfigureProductionIdentity(options);
-            }
+            #if DEBUG
+            return ConfigureDevelopmentIdentity(options);
+            #else
+            return ConfigureProductionIdentity(options);
+            #endif
         }
 
         public static IdentityOptions ConfigureDevelopmentIdentity(IdentityOptions options)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Feedz.Data.Models
@@ -9,9 +8,9 @@ namespace Feedz.Data.Models
     {
         [Key]
         public Guid Id { get; set; }
-        public string Title { get; set; }
-        public Uri Uri { get; set; }
-        public string UniqueI { get; set; }
+        public string? Title { get; set; }
+        public Uri? Uri { get; set; }
+        public string? UniqueI { get; set; }
         public string? Description { get; set; }
 
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
@@ -19,11 +18,7 @@ namespace Feedz.Data.Models
 
         // Relations
         public Guid FeedId { get; set; }
-        public Feed Feed { get; set; }
-
-        public FeedEntry()
-        {
-        }
+        public Feed? Feed { get; set; }
     }
 }
 

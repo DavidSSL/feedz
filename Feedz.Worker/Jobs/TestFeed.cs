@@ -1,6 +1,3 @@
-using System.ServiceModel.Syndication;
-using System.Text;
-using Feedz.Data.Models;
 using Hangfire;
 using Feedz.Feed.RSS;
 
@@ -8,14 +5,14 @@ namespace Feedz.Worker.Jobs;
 
 public class TestFeed
 {
-    public static string Schedule(Uri feedUri)
+    public static string Schedule(Uri? feedUri)
     {
         return BackgroundJob.Enqueue(() => Run(feedUri));
     }
 
-    public static Feedz.Data.Models.Feed Run(Uri feedUri)
+    public static Feedz.Data.Models.Feed Run(Uri? feedUri)
     {
-        var connector = new RSSFeedConnector();
+        var connector = new RssFeedConnector();
         connector.Configuration.FeedUri = feedUri;
         var originalFeed = connector.Fetch();
 

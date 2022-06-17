@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Feedz.Data.Database;
 using Hangfire;
 using Hangfire.PostgreSql;
-using Npgsql;
 using Feedz.Web.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
