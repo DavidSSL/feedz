@@ -4,10 +4,17 @@
 
 <div>
     <h1>Debug Page</h1>
-    <div>
+    <div class="container">
+  <div class="row">
+    <div class="col">
         <form action="/Debug/TestFeedSync" target="_blank" method="get">
-            <label>URI to fetch</label>
-            <input id="uri" name="uri" type="text" />
+            <div class="mb-3">
+                <label for="feedUri" class="form-label">Feed URL</label>
+                <input type="text" class="form-control" id="feedUri" name="feedUri" aria-describedby="feedUriHelp">
+                <div id="feedUriHelp" class="form-text">The URL of the feed to test</div>
+            </div>
         </form>
     </div>
+  </div>
+</div>
 </div>

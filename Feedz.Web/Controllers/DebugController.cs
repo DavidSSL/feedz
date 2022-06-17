@@ -27,16 +27,16 @@ public class DebugController : Controller
         return "ok";
     }
 
-    public string TestFeedAsync([FromQuery(Name = "uri")] string feedUriString)
+    public string TestFeedAsync([FromQuery(Name = "feedUri")] string feedUriString)
     {
-        if (feedUriString == null) throw new Exception("Missing uri parameter");
+        if (feedUriString == null) throw new Exception("Missing feedUri parameter");
         TestFeed.Schedule(new Uri(feedUriString));
         return "ok";
     }
 
-    public Feedz.Data.Models.Feed TestFeedSync([FromQuery(Name = "uri")] string feedUriString)
+    public Feedz.Data.Models.Feed TestFeedSync([FromQuery(Name = "feedUri")] string feedUriString)
     {
-        if (feedUriString == null) throw new Exception("Missing uri parameter");
+        if (feedUriString == null) throw new Exception("Missing feedUri parameter");
         return TestFeed.Run(new Uri(feedUriString));
     }
 
