@@ -24,16 +24,18 @@ public class IdentityDataSeeder
         _logger = logger;
         _userManager = userManager;
         _roleManager = roleManager;
+        _logger.LogInformation("Initialized IdentityDataSeeder");
     }
 
     public async Task SeedAsync()
     {
+        _logger.LogInformation("Running IdentityDataSeed");
         var needSeed = await IsSeedNeeded();
         if (!needSeed)
         {
+            _logger.LogInformation("No seeding needed");
             return;
         }
-        _logger.LogInformation("Running IdentityDataSeed");
         var administratorRole = new IdentityRole
         {
             Id = Guid.NewGuid().ToString(),
@@ -56,13 +58,14 @@ public class IdentityDataSeeder
 
         await GrantRoleToUser("Administrator", adminEmail);
 
+        _logger.LogInformation("Completed IdentityDataSeeder");
     }
 
     private async Task<bool> IsSeedNeeded()
     {
         var noRoles = await _roleManager.Roles.CountAsync() == 0;
         var noUsers = await _userManager.Users.CountAsync() == 0;
-        return !noRoles && !noUsers;
+        return noRoles && noUsers;
     }
 
     private async Task CreateRoleAsync(IdentityRole role)
