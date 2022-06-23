@@ -18,7 +18,7 @@ namespace Feedz.Data.Models
 
         // Relations
         public Guid FeedId { get; set; }
-        public Feed? Feed { get; set; }
+        public virtual Feed Feed { get; set; }
     }
 }
 

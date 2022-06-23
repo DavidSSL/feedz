@@ -14,7 +14,7 @@ namespace Feedz.Data.Models
         public string Title { get; set; }
 
         // Relations
-        public List<FeedEntry> Items { get; set; } = new List<FeedEntry>();
+        public List<FeedEntry> Items { get; set; } = new();
 
         // Timestamps
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
