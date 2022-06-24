@@ -1,0 +1,54 @@
+@using Microsoft.AspNetCore.Http.Features
+@model Feed
+
+@{
+    ViewData["Title"] = "Feed Test Page";
+}
+
+<div>
+    <h1>
+        Testing Feed @Model.Uri
+    </h1>
+    <div class="container">
+  <div class="row">
+      <div class="col">
+          <div class="row">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                      <img src="@Model.ImageUri" alt="Feed provided logo" />
+                  </div>
+                    <div class="col">
+                        Title: @Model.Title
+                    </div>
+                    <div class="col">
+                        Items: @Model.Items.Count().ToString()
+                    </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                @foreach (var feedItem in Model.Items)
+                {
+                <tr>
+                    <th scope="row"><pre>@feedItem.Id</pre></th>
+                    <td><a href="@feedItem.Uri">@feedItem.Title</a></td>
+                    <td>@feedItem.PublicationDate.ToShortDateString() - @feedItem.PublicationDate.ToShortTimeString()</td>
+                </tr>
+                }
+                </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

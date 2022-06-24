@@ -34,12 +34,13 @@ public class DebugController : Controller
         return "ok";
     }
 
-    public Feedz.Data.Models.Feed TestFeedSync([FromQuery(Name = "feedUri")] string feedUriString)
+    public ViewResult TestFeedSync([FromQuery(Name = "feedUri")] string feedUriString)
     {
         if (feedUriString == null) throw new Exception("Missing feedUri parameter");
-        return TestFeed.Run(new Uri(feedUriString));
+        var feedData = TestFeed.Run(new Uri(feedUriString));
+        return View("TestFeed", feedData);
     }
-
+ 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
