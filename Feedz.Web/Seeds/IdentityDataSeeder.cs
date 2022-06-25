@@ -1,6 +1,5 @@
-using Feedz.Data.Database;
+using Feedz.Data.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Feedz.Web.Settings;
@@ -10,14 +9,14 @@ public class IdentityDataSeeder
     private static string adminEmail = "admin@example.com";
     private static string adminPassword = "secret";
 
-    private UserManager<IdentityUser> _userManager;
-    private RoleManager<IdentityRole> _roleManager;
+    private UserManager<ApplicationUser> _userManager;
+    private RoleManager<ApplicationRole> _roleManager;
 
     private ILogger<IdentityDataSeeder> _logger;
 
     public IdentityDataSeeder(
-        UserManager<IdentityUser> userManager,
-        RoleManager<IdentityRole> roleManager,
+        UserManager<ApplicationUser> userManager,
+        RoleManager<ApplicationRole> roleManager,
         ILogger<IdentityDataSeeder> logger
     )
     {
@@ -36,17 +35,17 @@ public class IdentityDataSeeder
             _logger.LogInformation("No seeding needed");
             return;
         }
-        var administratorRole = new IdentityRole
+        var administratorRole = new ApplicationRole
         {
-            Id = Guid.NewGuid().ToString(),
+            Id = Guid.NewGuid(),
             Name = "Administrator",
             NormalizedName = "ADMINISTRATOR"
         };
         await CreateRoleAsync(administratorRole);
 
-        var administratorUser = new IdentityUser
+        var administratorUser = new ApplicationUser() 
         {
-            Id = Guid.NewGuid().ToString(),
+            Id = Guid.NewGuid(),
             UserName = adminEmail,
             NormalizedUserName = adminEmail.ToUpper(),
             Email = adminEmail,
@@ -68,7 +67,7 @@ public class IdentityDataSeeder
         return noRoles && noUsers;
     }
 
-    private async Task CreateRoleAsync(IdentityRole role)
+    private async Task CreateRoleAsync(ApplicationRole role)
     {
         var exits = await _roleManager.RoleExistsAsync(role.Name);
         if (!exits)
@@ -78,7 +77,7 @@ public class IdentityDataSeeder
         }
     }
 
-    private async Task CreateUserAsync(IdentityUser user, string password)
+    private async Task CreateUserAsync(ApplicationUser user, string password)
     {
         var currentUser = await _userManager.FindByEmailAsync(user.Email);
         if (currentUser == null)

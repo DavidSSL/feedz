@@ -15,10 +15,12 @@ namespace Feedz.Data.Models
 
         // Relations
         public List<FeedEntry> Items { get; set; } = new();
+        public List<FeedSubscription> Subscriptions { get; set; } = new();
 
         // Timestamps
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
         public DateTime? LastFetchDate { get; set; }
+        
 
         public Feed()
         {

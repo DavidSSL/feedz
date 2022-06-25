@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Feedz.Data.Database;
+using Feedz.Data.Models;
 using Feedz.Web.Services;
 using Hangfire;
 using Hangfire.PostgreSql;
@@ -18,8 +19,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Authentication provider configuration
-builder.Services.AddDefaultIdentity<IdentityUser>(options => Authentication.ConfigureIdentity(options))
-    .AddRoles<IdentityRole>()
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => Authentication.ConfigureIdentity(options))
+    .AddRoles<ApplicationRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IdentityDataSeeder>();
