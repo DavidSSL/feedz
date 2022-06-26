@@ -7,10 +7,10 @@ namespace Feedz.Data.Database;
 public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 {
 
-    public DbSet<Feed> Feeds { get; set; }
-    public DbSet<FeedEntry> FeedEntries { get; set; }
-    public DbSet<FeedEntryUserState> FeedEntryUserStates { get; set; }
-    public DbSet<FeedSubscription> FeedSubscriptions { get; set; }
+    public DbSet<Feed>? Feeds { get; set; }
+    public DbSet<FeedEntry>? FeedEntries { get; set; }
+    public DbSet<FeedEntryUserState>? FeedEntryUserStates { get; set; }
+    public DbSet<FeedSubscription>? FeedSubscriptions { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
