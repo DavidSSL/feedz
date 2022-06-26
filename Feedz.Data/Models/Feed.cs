@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ServiceModel.Syndication;
+using Microsoft.EntityFrameworkCore;
 
 namespace Feedz.Data.Models
 {
+    [Index(nameof(Uri), IsUnique = true)]
     public class Feed
     {
         // Identity
