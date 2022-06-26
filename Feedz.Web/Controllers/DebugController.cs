@@ -2,7 +2,7 @@
 using Feedz.Data.Database;
 using Microsoft.AspNetCore.Mvc;
 using Feedz.Data.Models;
-using Feedz.Feed.Services;
+using Feedz.Feed;
 using Feedz.Worker.Jobs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;

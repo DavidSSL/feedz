@@ -3,7 +3,7 @@ using Feedz.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Feedz.Feed.Services;
+namespace Feedz.Feed;
 
 public class FeedManager
 {
