@@ -15,6 +15,7 @@ namespace Feedz.Data.Models
         public Uri? ImageUri { get; set; }
         public string Title { get; set; }
 
+        public bool IsEnabled { get; set; } = true;
         // Relations
         public List<FeedEntry> Items { get; set; } = new();
         public List<FeedSubscription> Subscriptions { get; set; } = new();

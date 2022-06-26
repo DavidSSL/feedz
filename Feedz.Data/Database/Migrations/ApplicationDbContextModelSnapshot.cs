@@ -123,6 +123,9 @@ namespace Database.Migrations
                     b.Property<string>("ImageUri")
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("boolean");
+
                     b.Property<DateTime?>("LastFetchDate")
                         .HasColumnType("timestamp with time zone");
 

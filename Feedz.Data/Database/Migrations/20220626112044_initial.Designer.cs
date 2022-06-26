@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220625221048_initial")]
+    [Migration("20220626112044_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,6 +125,9 @@ namespace Database.Migrations
                     b.Property<string>("ImageUri")
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("boolean");
+
                     b.Property<DateTime?>("LastFetchDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -143,6 +146,9 @@ namespace Database.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Uri")
+                        .IsUnique();
 
                     b.ToTable("Feeds");
                 });

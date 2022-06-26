@@ -9,7 +9,7 @@ public class FeedSubscription
 {
     [Key]
     public Guid Id { get; set; } = Guid.NewGuid();
-    public bool Enabled = true;
+    public bool IsEnabled = true;
 
     public DateTime CreationDate { get; set; } = DateTime.Now;
     public DateTime UpdateDate { get; set; } = DateTime.Now;

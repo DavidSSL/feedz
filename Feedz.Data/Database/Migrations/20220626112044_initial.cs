@@ -58,6 +58,7 @@ namespace Database.Migrations
                     WebsiteUri = table.Column<string>(type: "text", nullable: true),
                     ImageUri = table.Column<string>(type: "text", nullable: true),
                     Title = table.Column<string>(type: "text", nullable: false),
+                    IsEnabled = table.Column<bool>(type: "boolean", nullable: false),
                     RegistrationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     LastFetchDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
@@ -307,6 +308,12 @@ namespace Database.Migrations
                 name: "IX_FeedEntryUserStates_UserId",
                 table: "FeedEntryUserStates",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Feeds_Uri",
+                table: "Feeds",
+                column: "Uri",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_FeedSubscriptions_FeedId",
