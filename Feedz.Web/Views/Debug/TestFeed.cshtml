@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Feed Test Page";
+    var isRegistered = ViewData["isRegistered"];
 }
 
 <div>
@@ -23,6 +24,9 @@
                     </div>
                     <div class="col">
                         Items: @Model.Items.Count().ToString()
+                    </div>
+                    <div>
+                        Registered: @isRegistered
                     </div>
                 </div>
               </div>
