@@ -23,7 +23,7 @@ namespace Feedz.Data.Models
         // Timestamps
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
         public DateTime? LastFetchDate { get; set; }
-        
+
 
         public Feed()
         {

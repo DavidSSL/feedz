@@ -13,11 +13,11 @@ public class FeedSubscription
 
     public DateTime CreationDate { get; set; } = DateTime.Now;
     public DateTime UpdateDate { get; set; } = DateTime.Now;
-    
+
     // Relations
     public virtual Feed Feed { get; set; }
     public Guid FeedId { get; set; }
-    
+
     public virtual ApplicationUser User { get; set; }
     public Guid UserId { get; set; }
 }

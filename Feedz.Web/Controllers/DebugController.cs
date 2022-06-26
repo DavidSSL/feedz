@@ -46,10 +46,10 @@ public class DebugController : Controller
         var isRegistered = await _db.Feeds.CountAsync(f => f.Uri == new Uri(feedUriString)) > 1;
 
         ViewData["isRegistered"] = isRegistered;
-        
+
         return View("TestFeed", feedData);
     }
- 
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

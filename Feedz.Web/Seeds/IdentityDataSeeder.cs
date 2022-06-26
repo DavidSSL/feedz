@@ -43,7 +43,7 @@ public class IdentityDataSeeder
         };
         await CreateRoleAsync(administratorRole);
 
-        var administratorUser = new ApplicationUser() 
+        var administratorUser = new ApplicationUser()
         {
             Id = Guid.NewGuid(),
             UserName = adminEmail,

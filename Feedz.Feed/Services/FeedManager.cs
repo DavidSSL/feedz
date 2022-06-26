@@ -9,7 +9,7 @@ public class FeedManager
 {
     private readonly ILogger<FeedManager> _logger;
     private readonly ApplicationDbContext _db;
-    
+
     public FeedManager(ILogger<FeedManager> logger, ApplicationDbContext db)
     {
         _logger = logger;
