@@ -29,10 +29,4 @@
   <ItemGroup>
     <Folder Include="Models\" />
   </ItemGroup>
-
-  <ItemGroup>
-    <SonarQubeSetting Include="sonar.exclusions">
-      <Value>**/Migrations/*</Value>
-    </SonarQubeSetting>
-  </ItemGroup>
 </Project>

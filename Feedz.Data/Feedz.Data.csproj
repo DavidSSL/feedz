@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-    <ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.5" />
@@ -15,9 +15,15 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.4" />
   </ItemGroup>
 
-    <ItemGroup>
+  <ItemGroup>
       <Folder Include="Database\Migrations" />
       <Folder Include="Services" />
-    </ItemGroup>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SonarQubeSetting Include="sonar.exclusions">
+      <Value>Database/Migrations/*</Value>
+    </SonarQubeSetting>
+  </ItemGroup>
 
 </Project>

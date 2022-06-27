@@ -33,23 +33,24 @@
           </div>
           <div class="row">
               <table class="table">
-                <thead>
+                  <caption>List of the feeds entries fetched from the given feed</caption>
+                  <thead>
                   <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Date</th>
+                      <th scope="col">ID</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Date</th>
                   </tr>
-                </thead>
-                <tbody>
-                @foreach (var feedItem in Model.Items)
-                {
-                <tr>
-                    <th scope="row"><pre>@feedItem.Id</pre></th>
-                    <td><a href="@feedItem.Uri" target="_blank" rel="noopener noreferrer">@feedItem.Title</a></td>
-                    <td>@feedItem.PublicationDate.ToShortDateString() - @feedItem.PublicationDate.ToShortTimeString()</td>
-                </tr>
-                }
-                </tbody>
+                  </thead>
+                  <tbody>
+                  @foreach (var feedItem in Model.Items)
+                  {
+                      <tr>
+                          <th scope="row"><pre>@feedItem.Id</pre></th>
+                          <td><a href="@feedItem.Uri" target="_blank" rel="noopener noreferrer">@feedItem.Title</a></td>
+                          <td>@feedItem.PublicationDate.ToShortDateString() - @feedItem.PublicationDate.ToShortTimeString()</td>
+                      </tr>
+                  }
+                  </tbody>
               </table>
           </div>
       </div>
