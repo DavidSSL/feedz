@@ -1,5 +1,6 @@
 @{
     ViewData["Title"] = "Debug Page";
+    Layout = "_AdminLayout";
 }
 
 <div>
@@ -7,7 +8,7 @@
     <div class="container">
   <div class="row">
     <div class="col">
-        <form action="/Debug/TestFeedSync" target="_blank" method="get">
+        <form action="/admin/debug/testfeedsync" target="_blank" method="get">
             <div class="mb-3">
                 <label for="feedUri" class="form-label">Feed URL</label>
                 <input type="text" class="form-control" id="feedUri" name="feedUri" aria-describedby="feedUriHelp">

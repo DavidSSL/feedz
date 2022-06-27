@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Feedz.Web.Controllers;
 
 [Authorize(Roles = "Administrator")]
+[Route("admin/debug")]
 public class DebugController : Controller
 {
     private readonly ILogger<DebugController> _logger;
@@ -21,17 +22,21 @@ public class DebugController : Controller
         _db = db;
     }
 
+    [Route("")]
+    [Route("index")]
     public IActionResult Index()
     {
         return View();
     }
 
+    [Route("ping")]
     public string Ping()
     {
         PingJob.Schedule();
         return "ok";
     }
 
+    [Route("testfeedasync")]
     public string TestFeedAsync([FromQuery(Name = "feedUri")] string feedUriString)
     {
         if (feedUriString == null) throw new Exception("Missing feedUri parameter");
@@ -39,6 +44,7 @@ public class DebugController : Controller
         return "ok";
     }
 
+    [Route("testfeedsync")]
     public async Task<ViewResult> TestFeedSync([FromQuery(Name = "feedUri")] string feedUriString)
     {
         if (feedUriString == null) throw new Exception("Missing feedUri parameter");
@@ -48,12 +54,6 @@ public class DebugController : Controller
         ViewData["isRegistered"] = isRegistered;
 
         return View("TestFeed", feedData);
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
 

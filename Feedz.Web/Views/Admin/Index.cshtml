@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Admin page";
+    Layout = "_AdminLayout";
+}
+
+<div class="containeri">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Statistics</h5>
+            <p class="card-text">
+                Users: @ViewBag.UsersCount <br/>
+                Roles: @ViewBag.RolesCount <br/>
+                Feeds: @ViewBag.FeedsCount<br/>
+                FeedEntries: @ViewBag.FeedEntriesCount<br/>
+                FeedSubscriptions: @ViewBag.FeedSubscriptionsCount<br/>
+                FeedEntryUserStates: @ViewBag.FeedEntryUserStates
+            </p>
+        </div>
+    </div>
+</div>
