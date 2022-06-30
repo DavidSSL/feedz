@@ -1,19 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1703.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Web", "Feedz.Web\Feedz.Web.csproj", "{B38C0E79-10C4-4B91-A831-F70187CB48FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedz.Web", "Feedz.Web\Feedz.Web.csproj", "{B38C0E79-10C4-4B91-A831-F70187CB48FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Data", "Feedz.Data\Feedz.Data.csproj", "{88C8A6DA-F0B7-4261-B80B-E740E56DCFEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedz.Data", "Feedz.Data\Feedz.Data.csproj", "{88C8A6DA-F0B7-4261-B80B-E740E56DCFEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Worker", "Feedz.Worker\Feedz.Worker.csproj", "{BEE4047F-E0BA-4877-8E96-18337E8C50CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedz.Worker", "Feedz.Worker\Feedz.Worker.csproj", "{BEE4047F-E0BA-4877-8E96-18337E8C50CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Feed.RSS", "Feedz.Feed.RSS\Feedz.Feed.RSS.csproj", "{9215CDD0-7361-404F-973A-58165CF38D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedz.Feed.RSS", "Feedz.Feed.RSS\Feedz.Feed.RSS.csproj", "{9215CDD0-7361-404F-973A-58165CF38D1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Feed", "Feedz.Feed\Feedz.Feed.csproj", "{C776E7C5-BC4E-45C6-B6DA-5861C6C97CF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedz.Feed", "Feedz.Feed\Feedz.Feed.csproj", "{C776E7C5-BC4E-45C6-B6DA-5861C6C97CF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Data.Tests", "Feedz.Data.Tests\Feedz.Data.Tests.csproj", "{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedz.Data.Tests", "Feedz.Data.Tests\Feedz.Data.Tests.csproj", "{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedz.Web.Tests", "Feedz.Web.Tests\Feedz.Web.Tests.csproj", "{ADDB3BAA-8A9E-4ECB-9FF5-201FECF2346A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,13 +47,15 @@ Global
 		{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB2F3354-C0F0-4FDE-9103-2CC0930B3717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADDB3BAA-8A9E-4ECB-9FF5-201FECF2346A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDB3BAA-8A9E-4ECB-9FF5-201FECF2346A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDB3BAA-8A9E-4ECB-9FF5-201FECF2346A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDB3BAA-8A9E-4ECB-9FF5-201FECF2346A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED474223-8EBF-4D95-826B-73D2023B5197}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
