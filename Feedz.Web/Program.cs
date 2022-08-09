@@ -1,8 +1,7 @@
-﻿using System.Collections.Immutable;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Feedz.Data.Database;
 using Feedz.Data.Models;
+using Feedz.Web.Seeds;
 using Feedz.Web.Services;
 using Hangfire;
 using Hangfire.PostgreSql;
@@ -23,7 +22,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => Authentication.C
     .AddRoles<ApplicationRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IdentityDataSeeder>();
+builder.Services.AddScoped<IdentityDataSeeder>();
 builder.Services.AddHostedService<SetupIdentityDataSeeder>();
 
 // Hangfire job storage
