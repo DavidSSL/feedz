@@ -4,10 +4,7 @@ using Hangfire.PostgreSql;
 var builder = WebApplication.CreateBuilder(args);
 var hangfireConnectionString = builder.Configuration.GetConnectionString("HangfireConnection");
 
-if (hangfireConnectionString is null)
-{
-    throw new Exception("Missing HangfireConnection connection string");
-}
+ArgumentNullException.ThrowIfNull(hangfireConnectionString);
 
 // Add services to the container.
 builder.Services.AddHangfire(configuration => configuration
